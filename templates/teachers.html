@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}
+All Teachers
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="row">
+        <div class="col-md 8">
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Staff No</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Levels</th>
+                    <th scope="col">Class Held</th>
+                    <th></th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for t in teachers %}
+                <tr>
+                    <td>staffno {{t.pk | stringformat:"03d"}}</td>
+                    <td>{{t.first_name}}</td>
+                    <td>{{t.last_name}}</td>
+                    <td>Level {{t.level}}</td>
+                    <td>
+                        {{t.class_held}}
+                    </td>   
+                    <td>
+                      <a href="{% url 'users:teacher_detail' t.pk %}">
+                        <button class="btn btn-primary btn-sm">
+                          View Teacher
+                        </button>
+                      </a>
+                    </td>
+
+                    <td>
+                      <a href="{% url 'users:delete_teacher' t.pk %}">
+                        <button class="btn btn-danger btn-sm">
+                          delete Teacher
+                        </button>
+                      </a>
+                    </td>
+                  </tr>
+                {% endfor %} 
+        
+                </tbody>
+              </table> 
+        </div>
+        <div class="col-md-4">
+            <form method="post" novalidate>
+                {% csrf_token %}
+              
+                {% for field in form %}
+                  <div class="form-group">
+                    {{ field.label_tag }}
+              
+                    {% if form.is_bound %}
+                      {% if field.errors %}
+              
+                        {% render_field field class="form-control is-invalid" %}
+                        {% for error in field.errors %}
+                          <div class="invalid-feedback">
+                            {{ error }}
+                          </div>
+                        {% endfor %}
+              
+                      {% else %}
+                        {% render_field field class="form-control is-valid" %}
+                      {% endif %}
+                    {% else %}
+                      {% render_field field class="form-control" %}
+                    {% endif %}
+              
+                    {% if field.help_text %}
+                      <small class="form-text text-muted">
+                        {{ field.help_text }}
+                      </small>
+                    {% endif %}
+                  </div>
+                {% endfor %}
+              
+                <button type="submit" class="btn btn-success">Post</button>
+              </form>
+        </div>
+    </div>
+      {% endblock %}
+
+
+

@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+
+{% block breadcrumb %}
+<li class="breadcrumb-item active"><a href="{% url 'users:home' %}">Home</a></li>
+<li class="breadcrumb-item"><a href="{% url 'users:student_list' %}">students</a></li>
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="row">
+        <div class="col-md 8">
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Student No</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Class </th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for s in student %}
+        
+                  <tr>
+                    <td>stud {{s.pk | stringformat:"03d"}}</td>
+                    <td>{{s.first_name}}</td>
+                    <td>{{s.last_name}}</td>
+                    <td> {{s.class_in}}</td>
+                    <td>
+                      <!-- <a href="{% url 'users:delete_student' s.pk %}">
+                        <button class="btn btn-danger btn-sm">
+                          delete Student
+                        </button>
+                      </a> -->
+                    </td>
+ 
+                  </tr>
+                {% endfor %} 
+        
+                </tbody>
+              </table> 
+        </div>
+        <div class="col-md-4">
+            <form method="post" novalidate>
+                {% csrf_token %}
+              
+                {% for field in form %}
+                  <div class="form-group">
+                    {{ field.label_tag }}
+              
+                    {% if form.is_bound %}
+                      {% if field.errors %}
+              
+                        {% render_field field class="form-control is-invalid" %}
+                        {% for error in field.errors %}
+                          <div class="invalid-feedback">
+                            {{ error }}
+                          </div>
+                        {% endfor %}
+              
+                      {% else %}
+                        {% render_field field class="form-control is-valid" %}
+                      {% endif %}
+                    {% else %}
+                      {% render_field field class="form-control" %}
+                    {% endif %}
+              
+                    {% if field.help_text %}
+                      <small class="form-text text-muted">
+                        {{ field.help_text }}
+                      </small>
+                    {% endif %}
+                  </div>
+                {% endfor %}
+              
+                <button type="submit" class="btn btn-success">Post</button>
+              </form>
+        </div>
+    </div>
+      {% endblock %}
+
+
+

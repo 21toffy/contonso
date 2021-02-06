@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+   <!-- Basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- Mobile Metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <!-- Site Metas -->
+   <title>Induko</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- site icon -->
+   <!-- Bootstrap core CSS -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      <link href="{% static 'static/css/style.css' %}" rel="stylesheet">
+
+   <link href="{% static 'static/css/style.css' %}" rel="stylesheet">
+
+</head>
+<body id="home_page" class="home_page">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" id="banner">
+        <div class="container">
+        <!-- Brand -->
+        <a class="navbar-brand" href="{% url 'users:home' %}"><span>Contonso College</span></a>
+      
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'users:teachers_list' %}">Teachers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'users:student_list' %}">Students</a>
+            </li>
+           <!-- Dropdown -->
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+              Dropdown link
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Link 1</a>
+              <a class="dropdown-item" href="#">Link 2</a>
+              <a class="dropdown-item" href="#">Link 3</a>
+            </div>
+          </li> -->
+          </ul>
+        </div>
+        </div>
+      </nav>
+  <br><br>
+
+   <!-- end header -->
+   
+   <!-- section -->
+   <section class="main_full banner_section_top">
+     <div class="container-fluid">
+       <div class="row">
+          <div class="full">
+               <div class="slider_banner">
+                 <img class="img-responsive" src="{% static 'static/images/home.jpg' %}" alt="#" />
+                   <div class="slide_cont">
+                     <div class="slider_cont_inner">
+                       <h3 style="color: black;">Welcome To Our school's</h3>
+                       <br>
+                       <h3 style="color: black;">management System</h3>
+                     <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit</p> -->
+                     <a class="blue_bt" href="#">Read More</a>
+                     </div>
+                   </div>
+               </div>
+             </div>
+       </div>
+     </div>
+   </section>
+   <!-- end section -->
+ 
+
+   <!-- section -->
+   <section class="layout_padding section">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-12 text_align_center">
+               <div class="full heading_s1">
+                  <!-- <h2>Our Courses</h2> -->
+               </div>
+               <div class="full">
+                  <!-- <p class="large">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</p> -->
+               </div>
+            </div>
+         </div>
+         <div class="row">
+
+           <div class="col-md-6 text_align_center">
+              <div class="cours">
+                <img class="img-responsive" src="{% static 'static/images/teacher.jpg' %}" alt="#" />
+              </div><br>
+              <a href="{% url 'users:teachers_list' %}">
+                  <button class="btn btn-primary">
+                      view Teachers
+                  </button>
+              </a>
+              <!-- <p>adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in re</p> -->
+           </div>  
+
+           <div class="col-md-6 text_align_center">
+              <div class="cours">
+                <img class="img-responsive" src="{% static 'static/images/student.jpg' %}" alt="#" />
+              </div>
+              <br>
+              <a href="{% url 'users:student_list' %}">
+                  <button class="btn btn-primary">
+                      view students
+                  </button>
+              </a>
+              <!-- <p>adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in re</p> -->
+           </div> 
+
+
+
+         </div>
+         
+      </div>
+   </section>
+   <!-- end section -->
+
+
+
+ 
+
+  
+   <!-- footer -->
+   <footer class="footer layout_padding">
+      <div class="container">
+         <div class="row">
+
+            <div class="col-md-4 col-sm-12">
+               <a href="index.html"><img class="img-responsive" src="images/logo_footer.png" alt="#" /></a>
+               <div class="footer_link_heading">
+                  <div class="footer_menu margin_top_30">
+                  <ul>
+                     <li><a href="tel:9876543210">9876 543 210</a></li>
+                     <li><a href="#">demo@gmail.com</a></li>
+                     <li><a href="#">40 Baria Sreet 133/2 NewYork City, US</a></li>
+                  </ul>
+               </div>
+               </div>
+            </div>
+            
+            <div class="col-md-8">
+              <div class="row">
+                 <div class="col-md-4 col-sm-12">
+               <div class="footer_link_heading">
+                  <h3>FEATURED COURSES</h3>
+               </div>
+               <div class="footer_menu">
+                  <ul>
+                     <li><a href="#">Starting Soon</a></li>
+                     <li><a href="#">Just Added</a></li>
+                     <li><a href="#">Most Viewed</a></li>
+                     <li><a href="#">Top Paid</a></li>
+                  </ul>
+               </div>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+               <div class="footer_link_heading">
+                  <h3>CATEGORIES</h3>
+               </div>
+               <div class="footer_menu">
+                 <ul>
+                    <li><a href="#">Arts & Design</a></li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">Computer</a></li>
+                    <li><a href="#">Data entery</a></li>
+                 </ul>
+               </div>
+            </div>
+            
+            <div class="col-md-4 col-sm-12">
+               <div class="footer_link_heading">
+                  <h3>USEFUL LINKS</h3>
+               </div>
+               <div class="footer_menu">
+                 <ul>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Success Stories</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Privacy policy</a></li>
+                    <li><a href="#">Contact search</a></li>
+                    <li><a href="#">Jobs and vacancies</a></li>
+                 </ul>
+               </div>
+            </div>
+              </div>
+            </div>
+            
+         </div>
+      </div>
+   </footer>
+
+
+</body>
+</html>
