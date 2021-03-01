@@ -87,3 +87,6 @@ def delete_student(request, pk):
         return HttpResponseRedirect("/students") 
   
     return render(request, "delete_view.html", context) 
+
+def man (request):
+    pass
